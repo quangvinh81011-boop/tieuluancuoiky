@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Trung Nguyen - Phản Hồi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+      <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            // Thay đổi sang tông Xanh Lá
+            'brown-primary': '#2e7d32',    // Xanh Lá Cây Đậm
+            'brown-secondary': '#81c784', // Xanh Lá Cây Nhạt/Điểm Nhấn
+            'f7f3e8': '#f0fff0',          // Nền Xanh Lục Nhạt/Trắng Xanh (honeydew)
+          }
+        }
+      }
+    }
+</script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body class="bg-f7f3e8 min-h-screen flex flex-col">
+
+    <header class="sticky top-0 z-50 bg-white/95 shadow-md backdrop-blur-sm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-extrabold text-brown-primary tracking-widest">
+                Coffee <span class="text-brown-secondary">Trung Nguyen</span>
+            </a>
+
+            <nav id="desktop-nav" class="hidden lg:flex space-x-8 text-lg font-medium">
+                <a href="index.html" class="text-brown-primary menu-link">Trang Chủ</a>
+                <a href="sanpham.html" class="text-brown-primary menu-link">Thực Đơn</a>
+                <a href="dathang.html" class="text-brown-primary menu-link">Đặt Hàng</a>
+                <a href="phanhoi.html" class="text-brown-primary menu-link active">Phản Hồi</a>
+                <a href="giohang.html" class="text-brown-primary menu-link">Giỏ Hàng</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <a href="giohang.html" class="text-brown-primary text-2xl p-2 rounded-lg hover:bg-stone-200 transition relative">
+                    <i class="fa-solid fa-cart-shopping h-6 w-6"></i>
+                    <span id="cart-count" class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">0</span>
+                </a>
+                <button id="mobile-menu-button" class="lg:hidden text-brown-primary text-2xl p-2 rounded-lg hover:bg-stone-200 transition">
+                    <i class="fa-solid fa-bars h-6 w-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <nav id="mobile-menu" class="hidden lg:hidden bg-white/90">
+            <a href="index.html" class="block py-2 px-4 text-brown-primary hover:bg-stone-100 transition">Trang Chủ</a>
+            <a href="sanpham.html" class="block py-2 px-4 text-brown-primary hover:bg-stone-100 transition">Thực Đơn</a>
+            <a href="dathang.html" class="block py-2 px-4 text-brown-primary hover:bg-stone-100 transition">Đặt Hàng</a>
+            <a href="phanhoi.html" class="block py-2 px-4 text-brown-primary hover:bg-stone-100 transition">Phản Hồi</a>
+            <a href="giohang.html" class="block py-2 px-4 text-brown-primary hover:bg-stone-100 transition">Giỏ Hàng</a>
+        </nav>
+    </header>
+
+    <main class="flex-grow">
+        <section class="py-16 bg-f7f3e8">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h1 class="text-4xl font-extrabold text-brown-primary text-center mb-10">
+                    Gửi Phản Hồi Cho Chúng Tôi
+                </h1>
+
+                <div class="flex justify-center">
+                    <div class="w-full max-w-2xl bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+                        <p class="text-center text-gray-600 mb-8">
+                            Ý kiến của bạn giúp Coffee NPC ngày càng hoàn thiện hơn. Vui lòng điền thông tin bên dưới.
+                        </p>
+                        
+                        <form id="feedback-form" class="space-y-6">
+                            
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Họ và Tên (*)</label>
+                                <input type="text" id="name" name="name" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-brown-secondary focus:border-brown-secondary transition">
+                            </div>
+
+                            <div>
+                                <label for="contact" class="block text-sm font-medium text-gray-700 mb-1">Email hoặc Số điện thoại (*)</label>
+                                <input type="text" id="contact" name="contact" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-brown-secondary focus:border-brown-secondary transition">
+                                <p class="text-xs text-gray-500 mt-1">Chúng tôi sẽ liên hệ qua thông tin này.</p>
+                            </div>
+
+                            <div>
+                                <label for="type" class="block text-sm font-medium text-gray-700 mb-1">Loại Phản Hồi</label>
+                                <select id="type" name="type" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-brown-secondary focus:border-brown-secondary transition">
+                                    <option value="complaint">Khiếu nại</option>
+                                    <option value="suggestion">Góp ý cải tiến</option>
+                                    <option value="compliment">Khen ngợi</option>
+                                    <option value="other">Khác</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Nội dung Phản Hồi (*)</label>
+                                <textarea id="message" name="message" rows="5" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-brown-secondary focus:border-brown-secondary transition"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn-primary w-full bg-brown-secondary hover:bg-[#8d6244] btn-zoom-effect">
+                                Gửi Phản Hồi
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-brown-primary text-white py-8 mt-auto">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="text-2xl font-bold mb-2">Coffee <span class="text-brown-secondary">NPC</span></div>
+            <p class="text-sm text-gray-400">&copy; 2024 Coffee NPC. Cà phê nguyên chất từ Tây Nguyên.</p>
+            <div class="mt-4 space-x-4">
+                <a href="https://www.facebook.com/?locale=vi_VN" class="text-gray-400 hover:text-brown-secondary transition">Facebook</a>
+                <a href="https://www.instagram.com/" class="text-gray-400 hover:text-brown-secondary transition">Instagram</a>
+                <a href="https://www.tiktok.com/vi-VN/" class="text-gray-400 hover:text-brown-secondary transition">Tiktok</a>
+            </div>
+        </div>
+    </footer>
+    
+    <div id="notification-container" class="fixed bottom-5 right-5 z-[1000]"></div>
+    <script src="js/scrip.js"></script>
+</body>
+</html>

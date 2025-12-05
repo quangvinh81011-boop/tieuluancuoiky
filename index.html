@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Trung Nguyen - Trang Chủ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            // Thay đổi sang tông Xanh Lá
+            'brown-primary': '#2e7d32',    // Xanh Lá Cây Đậm
+            'brown-secondary': '#81c784', // Xanh Lá Cây Nhạt/Điểm Nhấn
+            'f7f3e8': '#f0fff0',          // Nền Xanh Lục Nhạt/Trắng Xanh (honeydew)
+          }
+        }
+      }
+    }
+</script>
+    
+    <link rel="stylesheet" href="styles.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body class="bg-f7f3e8 min-h-screen flex flex-col">
+
+    <header class="sticky top-0 z-50 bg-white/95 shadow-md backdrop-blur-sm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-extrabold text-brown-primary tracking-widest">
+                Coffee <span class="text-brown-secondary">Trung Nguyen</span>
+            </a>
+
+            <nav id="desktop-nav" class="hidden lg:flex space-x-8 text-lg font-medium">
+                <a href="index.html" class="text-brown-primary menu-link active">Trang Chủ</a>
+                <a href="sanpham.html" class="text-brown-primary menu-link">Thực Đơn</a>
+                <a href="dathang.html" class="text-brown-primary menu-link">Đặt Hàng</a>
+                <a href="phanhoi.html" class="text-brown-primary menu-link">Phản Hồi</a>
+                <a href="giohang.html" class="text-brown-primary menu-link">Giỏ Hàng</a>
+                
+           
+                
+            <div id="auth-area" class="flex items-center space-x-4"></div>
+
+
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <a href="giohang.html" class="text-brown-primary text-2xl p-2 rounded-lg hover:bg-stone-200 transition relative">
+                    <i class="fa-solid fa-cart-shopping h-6 w-6"></i>
+                    <span id="cart-count" class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">0</span>
+                </a>
+                <button id="mobile-menu-button" class="lg:hidden text-brown-primary text-2xl p-2 rounded-lg hover:bg-stone-200 transition">
+                    <i class="fa-solid fa-bars h-6 w-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <nav id="mobile-menu" class="hidden lg:hidden bg-white/90">
+            <a href="index.html" class="block py-2 px-4 text-brown-primary hover:bg-stone-100 transition">Trang Chủ</a>
+            <a href="sanpham.html" class="block py-2 px-4 text-brown-primary hover:bg-stone-100 transition">Thực Đơn</a>
+            <a href="dathang.html" class="block py-2 px-4 text-brown-primary hover:bg-stone-100 transition">Đặt Hàng</a>
+            <a href="phanhoi.html" class="block py-2 px-4 text-brown-primary hover:bg-stone-100 transition">Phản Hồi</a>
+            <a href="giohang.html" class="block py-2 px-4 text-brown-primary hover:bg-stone-100 transition">Giỏ Hàng</a>
+        </nav>
+    </header>
+
+    <main class="flex-grow">
+        <section class="hero-section py-24 md:py-32 flex items-center min-h-[60vh]">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-4 text-brown-primary animate-fadeIn">
+                    Khởi Đầu Ngày Mới
+                </h2>
+                <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto font-light text-brown-primary opacity-90 animate-fadeIn delay-300">
+                   Hương thơm lan tỏa, đánh thức mọi giác quan.
+                </p>
+                <a href="sanpham.html" class="btn-primary inline-block text-lg px-8 py-3 animate-fadeIn delay-500 btn-zoom-effect">
+                    Xem Thực Đơn Ngay
+                </a>
+            </div>
+        </section>
+
+        <section class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h3 class="text-3xl md:text-4xl font-bold text-brown-primary mb-6">
+                    Câu Chuyện Của Coffee Trung Nguyen
+                </h3>
+                <p class="text-lg text-gray-600 max-w-4xl mx-auto mb-12">
+                    Câu chuyện Trung Nguyên là hình ảnh về ý chí khởi nghiệp từ hai bàn tay trắng, biến khát vọng cá nhân thành một thương hiệu quốc gia mang tầm nhìn toàn cầu, đồng thời lồng ghép cà phê với triết lý về năng lượng và sự sáng tạo.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                    <div class="p-6 bg-f7f3e8 rounded-xl shadow-lg border border-gray-200 hover:shadow-2xl transition duration-300">
+                        <i class="fa-solid fa-tree text-4xl text-brown-secondary mb-4"></i>
+                        <h4 class="text-xl font-semibold text-brown-primary mb-3">Hạt Cà Phê Nguyên Chất</h4>
+                        <p class="text-gray-600">Được thu hoạch từ những nông trại uy tín nhất, đảm bảo 100% Arabica và Robusta chất lượng cao.</p>
+                    </div>
+                    <div class="p-6 bg-f7f3e8 rounded-xl shadow-lg border border-gray-200 hover:shadow-2xl transition duration-300">
+                        <i class="fa-solid fa-mug-hot text-4xl text-brown-secondary mb-4"></i>
+                        <h4 class="text-xl font-semibold text-brown-primary mb-3">Pha Chế Thủ Công</h4>
+                        <p class="text-gray-600">Mỗi ly cà phê đều là một tác phẩm nghệ thuật, pha chế tỉ mỉ bởi các Barista giàu kinh nghiệm.</p>
+                    </div>
+                    <div class="p-6 bg-f7f3e8 rounded-xl shadow-lg border border-gray-200 hover:shadow-2xl transition duration-300">
+                        <i class="fa-solid fa-truck-fast text-4xl text-brown-secondary mb-4"></i>
+                        <h4 class="text-xl font-semibold text-brown-primary mb-3">Giao Hàng Tận Nơi</h4>
+                        <p class="text-gray-600">Đơn hàng của bạn sẽ được giao nhanh chóng và đảm bảo hương vị không đổi đến tay bạn.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 md:py-24 bg-f7f3e8">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h3 class="text-4xl font-bold text-brown-primary text-center mb-12">
+                    Các Sản Phẩm Nổi Bật
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+                        <img class="w-full h-40 object-cover rounded-md mb-4" src="images/cfs.jpg.jpg" alt="Cà Phê Sữa Đá">
+                        <h4 class="text-xl font-semibold text-brown-primary mb-2">Cà Phê Sữa Đá</h4>
+                        <p class="text-gray-600 mb-3 text-sm">Hương vị Việt Nam truyền thống.</p>
+                        <div class="text-xl font-bold text-brown-secondary">25.000 VNĐ</div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+                        <img class="w-full h-40 object-cover rounded-md mb-4" src="images/bs.jpg.png" alt="Bạc Xỉu">
+                        <h4 class="text-xl font-semibold text-brown-primary mb-2">Bạc Xỉu</h4>
+                        <p class="text-gray-600 mb-3 text-sm">Béo ngậy, ngọt dịu, ít cà phê.</p>
+                        <div class="text-xl font-bold text-brown-secondary">28.000 VNĐ</div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+                        <img class="w-full h-40 object-cover rounded-md mb-4" src="images/td.jpg.jpg" alt="Trà Đào Cam Sả">
+                        <h4 class="text-xl font-semibold text-brown-primary mb-2">Trà Đào </h4>
+                        <p class="text-gray-600 mb-3 text-sm">Giải khát tuyệt vời, hương thơm tự nhiên.</p>
+                        <div class="text-xl font-bold text-brown-secondary">22.000 VNĐ</div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+                        <img class="w-full h-40 object-cover rounded-md mb-4" src="images/cfm.jpg.jfif" alt="Cà phê muối">
+                        <h4 class="text-xl font-semibold text-brown-primary mb-2">Cà phê muối</h4>
+                        <p class="text-gray-600 mb-3 text-sm">Hương vị tinh tế, độc đáo và lạ miệng.</p>
+                        <div class="text-xl font-bold text-brown-secondary">33.000 VNĐ</div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-12">
+                    <a href="sanpham.html" class="btn-primary inline-block text-lg px-8 py-3 btn-zoom-effect">
+                        Xem Toàn Bộ Thực Đơn
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 md:py-24 bg-brown-secondary text-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h3 class="text-3xl md:text-5xl font-extrabold mb-4">
+                    Đặt Hàng Ngay, Nhận Ưu Đãi Lớn!
+                </h3>
+                <p class="text-lg mb-8 max-w-xl mx-auto opacity-90">
+                    Giảm ngay 10% cho đơn hàng đầu tiên của bạn. Đừng bỏ lỡ cơ hội!
+                </p>
+                <a href="dathang.html" class="bg-white text-brown-secondary font-bold py-3 px-8 rounded-lg shadow-xl hover:bg-gray-100 transition duration-300 text-lg btn-zoom-effect">
+                    Đặt Hàng
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-brown-primary text-white py-8 mt-auto">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="text-2xl font-bold mb-2">Coffee <span class="text-brown-secondary">NPC</span></div>
+            <p class="text-sm text-gray-400">&copy; 2024 Coffee Trung Nguyen. Cà phê nguyên chất từ Tây Nguyên.</p>
+            <div class="mt-4 space-x-4">
+                <a href="https://www.facebook.com/?locale=vi_VN" class="text-gray-400 hover:text-brown-secondary transition">Facebook</a>
+                <a href="https://www.instagram.com/" class="text-gray-400 hover:text-brown-secondary transition">Instagram</a>
+                <a href="https://www.tiktok.com/vi-VN/" class="text-gray-400 hover:text-brown-secondary transition">Tiktok</a>
+            </div>
+        </div>
+    </footer>
+    <div id="notification-container" class="fixed bottom-5 right-5 z-[1002]"></div>
+    <script src="js/scrip.js"></script>
+</body>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const user = localStorage.getItem("loggedInUser");
+    const authArea = document.getElementById("auth-area");
+
+    if (user) {
+        authArea.innerHTML = `
+            <span class="text-brown-primary font-semibold">Xin chào, ${user}</span>
+            <button id="logoutBtn" class="px-3 py-2 rounded-md bg-red-500 text-white hover:bg-red-600">
+                Đăng Xuất
+            </button>
+        `;
+
+        document.getElementById("logoutBtn").addEventListener("click", function() {
+            localStorage.removeItem("loggedInUser");
+            window.location.reload();
+        });
+
+    } else {
+        authArea.innerHTML = `
+            <a href="dangnhap.html"
+               class="block px-3 py-2 rounded-md text-base font-medium text-brown-primary hover:bg-f7f3e8 border-t mt-1">
+               <i class="fa-solid fa-right-to-bracket mr-2"></i> Đăng Nhập
+            </a>
+            <a href="dangkytk.html"
+               class="block px-3 py-2 rounded-md text-base font-medium text-white bg-brown-secondary hover:bg-brown-primary">
+               <i class="fa-solid fa-user-plus mr-2"></i> Đăng Ký
+            </a>
+        `;
+    }
+});
+</script>
+<script src="dkdn.js"></script>
+
+</html>

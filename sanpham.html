@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee NPC - Thực Đơn</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+     <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            // Thay đổi sang tông Xanh Lá
+            'brown-primary': '#2e7d32',    // Xanh Lá Cây Đậm
+            'brown-secondary': '#81c784', // Xanh Lá Cây Nhạt/Điểm Nhấn
+            'f7f3e8': '#f0fff0',          // Nền Xanh Lục Nhạt/Trắng Xanh (honeydew)
+          }
+        }
+      }
+    }
+</script>
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body class="bg-f7f3e8 min-h-screen flex flex-col">
+
+    <header class="sticky top-0 z-50 bg-white/95 shadow-md backdrop-blur-sm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-extrabold text-brown-primary tracking-widest">
+                Coffee <span class="text-brown-secondary">Trung Nguyen </span>
+            </a>
+
+            <nav id="desktop-nav" class="hidden lg:flex space-x-8 text-lg font-medium">
+                <a href="index.html" class="text-brown-primary menu-link">Trang Chủ</a>
+                <a href="sanpham.html" class="text-brown-primary menu-link active">Thực Đơn</a>
+                <a href="dathang.html" class="text-brown-primary menu-link">Đặt Hàng</a>
+                <a href="phanhoi.html" class="text-brown-primary menu-link">Phản Hồi</a>
+                <a href="giohang.html" class="text-brown-primary menu-link">Giỏ Hàng</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <a href="giohang.html" class="text-brown-primary text-2xl p-2 rounded-lg hover:bg-stone-200 transition relative">
+                    <i class="fa-solid fa-cart-shopping h-6 w-6"></i>
+                    <span id="cart-count" class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">0</span>
+                </a>
+                <button id="mobile-menu-button" class="lg:hidden text-brown-primary text-2xl p-2 rounded-lg hover:bg-stone-200 transition">
+                    <i class="fa-solid fa-bars h-6 w-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <nav id="mobile-menu" class="hidden lg:hidden bg-white/90">
+            <a href="index.html" class="block py-2 px-4 text-brown-primary hover:bg-stone-100 transition">Trang Chủ</a>
+            <a href="sanpham.html" class="block py-2 px-4 text-brown-primary hover:bg-stone-100 transition">Thực Đơn</a>
+            <a href="dathang.html" class="block py-2 px-4 text-brown-primary hover:bg-stone-100 transition">Đặt Hàng</a>
+            <a href="phanhoi.html" class="block py-2 px-4 text-brown-primary hover:bg-stone-100 transition">Phản Hồi</a>
+            <a href="giohang.html" class="block py-2 px-4 text-brown-primary hover:bg-stone-100 transition">Giỏ Hàng</a>
+        </nav>
+    </header>
+    
+    <main class="flex-grow">
+        <section class="page-title-section">
+            <div class="container mx-auto px-4">
+                <h1>Thực Đơn Cà Phê & Đồ Uống</h1>
+            </div>
+        </section>
+
+        <section class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <p class="text-center text-lg text-gray-700 mb-12">
+                    Khám phá sự đa dạng từ cà phê truyền thống đến các món đá xay và trà trái cây.
+                </p>
+                <div class="flex justify-end mb-8">
+                    <div class="relative w-full max-w-xs">
+                        <input 
+                            id="searchInput"
+                            type="text"
+                            placeholder="Tìm sản phẩm..."
+                            class="w-full p-3 pr-10 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-brown-primary"
+                        >
+                        <i class="fa-solid fa-magnifying-glass absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"></i>
+                    </div>
+                </div>
+                
+                <div id="productList" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <div class="bg-f7f3e8 p-6 rounded-xl shadow-lg border border-gray-200">
+                        <img src="images/cfs.jpg.jpg" class="w-full h-48 object-cover rounded-lg mb-4" alt="Cà Phê Sữa Đá">
+                        <h3 class="text-2xl font-semibold text-brown-secondary mb-2">Cà Phê Sữa Đá</h3>
+                        <p class="text-gray-600 mb-4">Huyền thoại đậm đà, béo ngậy.</p>
+                        <span class="text-xl font-bold text-brown-primary">25.000 VNĐ</span>
+                        <button class="w-full mt-4 btn-primary text-sm btn-zoom-effect" 
+                                data-id="sp01" data-name="Cà Phê Sữa Đá" data-price="25000">Thêm vào Giỏ</button>
+                    </div>
+
+                    <div class="bg-f7f3e8 p-6 rounded-xl shadow-lg border border-gray-200">
+                        <img src="images/bs.jpg.png" class="w-full h-48 object-cover rounded-lg mb-4" alt="Bạc Xỉu">
+                        <h3 class="text-2xl font-semibold text-brown-secondary mb-2">Bạc Xỉu</h3>
+                        <p class="text-gray-600 mb-4">Ngọt nhẹ nhàng, ít cà phê.</p>
+                        <span class="text-xl font-bold text-brown-primary">28.000 VNĐ</span>
+                        <button class="w-full mt-4 btn-primary text-sm btn-zoom-effect" 
+                                data-id="sp02" data-name="Bạc Xỉu" data-price="28000">Thêm vào Giỏ</button>
+                    </div>
+
+                    <div class="bg-f7f3e8 p-6 rounded-xl shadow-lg border border-gray-200">
+                        <img src="images/td.jpg.jpg" class="w-full h-48 object-cover rounded-lg mb-4" alt="Trà Đào Cam Sả">
+                        <h3 class="text-2xl font-semibold text-brown-secondary mb-2">Trà Đào</h3>
+                        <p class="text-gray-600 mb-4">Giải khát hương vị tự nhiên.</p>
+                        <span class="text-xl font-bold text-brown-primary">22.000 VNĐ</span>
+                        <button class="w-full mt-4 btn-primary text-sm btn-zoom-effect" 
+                                data-id="sp03" data-name="Trà Đào Cam Sả" data-price="22000">Thêm vào Giỏ</button>
+                    </div>
+                    <div class="bg-f7f3e8 p-6 rounded-xl shadow-lg border border-gray-200">
+                        <img src="images/matcha.jpg.jfif" class="w-full h-48 object-cover rounded-lg mb-4" alt="Matcha Latte">
+                        <h3 class="text-2xl font-semibold text-brown-secondary mb-2">Matcha Latte</h3>
+                        <p class="text-gray-600 mb-4">Thanh đắng nhẹ, béo mịn.</p>
+                        <span class="text-xl font-bold text-brown-primary">35.000 VNĐ</span>
+                        <button class="w-full mt-4 btn-primary text-sm btn-zoom-effect" 
+                                data-id="sp04" data-name="Matcha Latte" data-price="35000">Thêm vào Giỏ</button>
+                    </div>
+                    <div class="bg-f7f3e8 p-6 rounded-xl shadow-lg border border-gray-200">
+                        <img src="images/Travai.jpg.jfif" class="w-full h-48 object-cover rounded-lg mb-4" alt="Trà vải">
+                        <h3 class="text-2xl font-semibold text-brown-secondary mb-2">Trà vải Hoa Hồng</h3>
+                        <p class="text-gray-600 mb-4">Ngọt thanh, thơm mát.</p>
+                        <span class="text-xl font-bold text-brown-primary">30.000 VNĐ</span>
+                        <button class="w-full mt-4 btn-primary text-sm btn-zoom-effect" 
+                                data-id="sp05" data-name="Trà vải" data-price="30000">Thêm vào Giỏ</button>
+                    </div>
+                    <div class="bg-f7f3e8 p-6 rounded-xl shadow-lg border border-gray-200">
+                        <img src="images/cam.jpg.jfif" class="w-full h-48 object-cover rounded-lg mb-4" alt="Nước ép Cam">
+                        <h3 class="text-2xl font-semibold text-brown-secondary mb-2">Nước ép Cam</h3>
+                        <p class="text-gray-600 mb-4">Chua ngọt tự nhiên, thanh mát.</p>
+                        <span class="text-xl font-bold text-brown-primary">25.000 VNĐ</span>
+                        <button class="w-full mt-4 btn-primary text-sm btn-zoom-effect" 
+                                data-id="sp06" data-name="Nước ép Cam" data-price="25000">Thêm vào Giỏ</button>
+                    </div>
+                    <div class="bg-f7f3e8 p-6 rounded-xl shadow-lg border border-gray-200">
+                        <img src="images/yaua.jpg.jpg" class="w-full h-48 object-cover rounded-lg mb-4" alt="Yogurt đá/xay">
+                        <h3 class="text-2xl font-semibold text-brown-secondary mb-2">Yogurt đá/xay</h3>
+                        <p class="text-gray-600 mb-4">Chua nhẹ, béo mịn, mát lạnh.</p>
+                        <span class="text-xl font-bold text-brown-primary">35.000 VNĐ</span>
+                        <button class="w-full mt-4 btn-primary text-sm btn-zoom-effect" 
+                                data-id="sp07" data-name="Yogurt đá/xay" data-price="35000">Thêm vào Giỏ</button>
+                    </div>
+                    <div class="bg-f7f3e8 p-6 rounded-xl shadow-lg border border-gray-200">
+                        <img src="images/sinhtobo.jpg.jpg" class="w-full h-48 object-cover rounded-lg mb-4" alt="Sinh tố Bơ">
+                        <h3 class="text-2xl font-semibold text-brown-secondary mb-2">Sinh tố Bơ</h3>
+                        <p class="text-gray-600 mb-4">Mịn mượt, thơm tự nhiên.</p>
+                        <span class="text-xl font-bold text-brown-primary">40.000 VNĐ</span>
+                        <button class="w-full mt-4 btn-primary text-sm btn-zoom-effect" 
+                                data-id="sp08" data-name="Sinh tố Bơ" data-price="40000">Thêm vào Giỏ</button>
+                    </div>
+                    <div class="bg-f7f3e8 p-6 rounded-xl shadow-lg border border-gray-200">
+                        <img src="images/mocha.jpg.jpg" class="w-full h-48 object-cover rounded-lg mb-4" alt="Mocha">
+                        <h3 class="text-2xl font-semibold text-brown-secondary mb-2">Mocha</h3>
+                        <p class="text-gray-600 mb-4">Ấm áp và sảng khoái.</p>
+                        <span class="text-xl font-bold text-brown-primary">35.000 VNĐ</span>
+                        <button class="w-full mt-4 btn-primary text-sm btn-zoom-effect" 
+                                data-id="sp09" data-name="Mocha" data-price="35000">Thêm vào Giỏ</button>
+                    </div>
+                    
+                    <div class="bg-f7f3e8 p-6 rounded-xl shadow-lg border border-gray-200">
+                        <img src="images/sinhtosoai.jpg.jfif" class="w-full h-48 object-cover rounded-lg mb-4" alt="Sinh tố xoài">
+                        <h3 class="text-2xl font-semibold text-brown-secondary mb-2">Sinh tố xoài</h3>
+                        <p class="text-gray-600 mb-4">Sảng khoái và ngọt ngào.</p>
+                        <span class="text-xl font-bold text-brown-primary">40.000 VNĐ</span>
+                        <button class="w-full mt-4 btn-primary text-sm btn-zoom-effect" 
+                                data-id="sp10" data-name="Sinh tố xoài" data-price="40000">Thêm vào Giỏ</button>
+                    </div>
+                    <div class="bg-f7f3e8 p-6 rounded-xl shadow-lg border border-gray-200">
+                        <img src="images/cfm.jpg.jfif" class="w-full h-48 object-cover rounded-lg mb-4" alt="Cà phê muối">
+                        <h3 class="text-2xl font-semibold text-brown-secondary mb-2">Cà phê muối</h3>
+                        <p class="text-gray-600 mb-4">Tinh tế, lạ miệng, kích thích.</p>
+                        <span class="text-xl font-bold text-brown-primary">33.000 VNĐ</span>
+                        <button class="w-full mt-4 btn-primary text-sm btn-zoom-effect" 
+                                data-id="sp11" data-name="Cà phê muối" data-price="33000">Thêm vào Giỏ</button>
+                    </div>
+                    <div class="bg-f7f3e8 p-6 rounded-xl shadow-lg border border-gray-200">
+                        <img src="images/soda.jpg.jfif" class="w-full h-48 object-cover rounded-lg mb-4" alt="Soda Ý">
+                        <h3 class="text-2xl font-semibold text-brown-secondary mb-2">Soda Ý</h3>
+                        <p class="text-gray-600 mb-4">Mát lạnh, sảng khoái.</p>
+                        <span class="text-xl font-bold text-brown-primary">36.000 VNĐ</span>
+                        <button class="w-full mt-4 btn-primary text-sm btn-zoom-effect" 
+                                data-id="sp12" data-name="Soda Ý" data-price="36000">Thêm vào Giỏ</button>
+                    </div>
+                    
+                </div>
+                
+                <div class="text-center mt-12">
+                    <a href="dathang.html" class="btn-primary inline-block bg-brown-secondary hover:bg-[#8d6244] btn-zoom-effect">
+                        Chuyển Đến Trang Đặt Hàng
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-brown-primary text-white py-8 mt-auto">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="text-2xl font-bold mb-2">Coffee <span class="text-brown-secondary">NPC</span></div>
+            <p class="text-sm text-gray-400">&copy; 2024 Coffee NPC. Cà phê nguyên chất từ Tây Nguyên.</p>
+            <div class="mt-4 space-x-4">
+                <a href="https://www.facebook.com/?locale=vi_VN" class="text-gray-400 hover:text-brown-secondary transition">Facebook</a>
+                <a href="https://www.instagram.com/" class="text-gray-400 hover:text-brown-secondary transition">Instagram</a>
+                <a href="https://www.tiktok.com/vi-VN/" class="text-gray-400 hover:text-brown-secondary transition">Tiktok</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="notification-container" class="fixed bottom-5 right-5 z-[1002]"></div>
+    <script src="js/scrip.js"></script>
+</body>
+</html>

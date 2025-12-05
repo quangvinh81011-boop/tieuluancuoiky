@@ -1,0 +1,96 @@
+/* Khai báo biến CSS cho màu sắc để dễ quản lý */
+:root {
+    --brown-primary: #4f3a28;
+    --brown-secondary: #a87955;
+    --bg-light: #f7f3e8;
+}
+
+/* Các định nghĩa Tailwind tùy chỉnh */
+.text-brown-primary { color: var(--brown-primary); }
+.text-brown-secondary { color: var(--brown-secondary); }
+.bg-brown-primary { background-color: var(--brown-primary); }
+.bg-brown-secondary { background-color: var(--brown-secondary); }
+.bg-f7f3e8 { background-color: var(--bg-light); }
+.focus\:ring-brown-secondary:focus { --tw-ring-color: var(--brown-secondary); }
+.focus\:border-brown-secondary:focus { border-color: var(--brown-secondary); }
+.hover\:bg-\[\#3d2e20\]:hover { background-color: #3d2e20; }
+.hover\:bg-\[\#8d6244\]:hover { background-color: #8d6244; }
+
+
+/* Các lớp chung cho nút bấm (thêm box-shadow) */
+.btn-primary {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    background-color: var(--brown-primary);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+.btn-primary:hover {
+    background-color: var(--brown-secondary); 
+}
+
+/* Hiệu ứng Zoom nút khi hover */
+.btn-zoom-effect {
+    transition: transform 0.3s ease, font-size 0.3s ease;
+}
+
+.btn-zoom-effect:hover {
+    transform: scale(1.05); /* Phóng to nút một chút */
+}
+
+/* Menu Link Active */
+.menu-link.active {
+    border-bottom: 2px solid var(--brown-secondary);
+}
+
+/* Các định nghĩa cụ thể */
+.page-title-section {
+    padding: 40px 0;
+    text-align: center;
+    background-color: white;
+    border-bottom: 1px solid #eee;
+}
+.page-title-section h1 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--brown-primary);
+}
+
+/* Dành cho trang chủ */
+.hero-section {
+    /* ĐÃ CHỈNH SỬA: Đường dẫn tương đối chính xác */
+    background-image: url('../images/background.png'); 
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    color: #fff;
+}
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1;
+}
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* ✅ HIỆU ỨNG MỚI: Thêm bóng đổ cho chữ Hero Section */
+.text-shadow-light {
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8), 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Transition cho Notification */
+.app-notification {
+    transition: transform 0.5s ease-out;
+}
